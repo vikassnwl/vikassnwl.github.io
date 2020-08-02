@@ -43,7 +43,7 @@ body{
 }
 
 p{
-    text-align: justify;
+/*     text-align: justify; */
     word-wrap: break-word;
 }
 
