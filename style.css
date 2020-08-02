@@ -74,7 +74,7 @@ p{
 }
 
 .main_container{
-    padding: 10px 20px;
+    padding: 10px;
     float: left;
     width:60%;
 }
@@ -120,7 +120,7 @@ p{
     /* For tablets: */
     .main_container {
       width: 80%;
-      padding: 0;
+/*       padding: 0; */
     }
     .right_container {
       width: 100%;
