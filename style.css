@@ -72,6 +72,7 @@ p{
     border-radius: 10px;
     transition: 0.3s;
     margin-bottom: 25px;
+    background-color: lightblue;
 }
 
 .main_container{
