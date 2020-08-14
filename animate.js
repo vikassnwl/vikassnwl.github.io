@@ -1,33 +1,38 @@
+var elem, clicked = false;
+
 $(document).ready(function(){
 
     $("#clk_exp").click(function(){
-
+        clicked = true;
+        elem = '#exp'
         var target = $('#exp');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top-60
+                scrollTop: target.offset().top-10
             }, 1000);
             return false;
         }
     });
 
     $("#clk_about").click(function(){
-
+        clicked = true;
+        elem = '#about'
         var target = $('#about');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top-60
+                scrollTop: target.offset().top-10
             }, 1000);
             return false;
         }
     });
 
     $("#clk_do").click(function(){
-
+        clicked = true;
+        elem = '#do'
         var target = $('#do');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top-60
+                scrollTop: target.offset().top-10
             }, 1000);
             return false;
         }
@@ -41,22 +46,24 @@ $(document).ready(function(){
     });
 
     $("#clk_skills").click(function(){
-
+        clicked = true;
+        elem = '#skills'
         var target = $('#skills');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top-60
+                scrollTop: target.offset().top-10
             }, 1000);
             return false;
         }
     });
 
     $("#clk_contact").click(function(){
-
+        clicked = true;
+        elem = '#contact'
         var target = $('#contact');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top-60
+                scrollTop: target.offset().top-10
             }, 1000);
             return false;
         }
@@ -147,13 +154,26 @@ $(window).scroll(function(){
     }
 
     else{
-
+        // code for hiding and showing navigation bar on scroll
         st = $(this).scrollTop();
+        
         if(st > lastScrollTop+10){
+
             $(".hamburger").hide();
             lastScrollTop = st;
         }
-        else if(st < lastScrollTop-10){
+
+        else if (clicked == true){
+
+            if (st < $(elem).offset().top){
+                clicked = false;
+                $(".hamburger").hide();
+                lastScrollTop = st;
+            }
+        }
+
+        else if (st < lastScrollTop-10){
+
             $(".hamburger").show();
             lastScrollTop = st;
 
