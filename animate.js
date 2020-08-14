@@ -154,6 +154,7 @@ $(window).scroll(function(){
     }
 
     else{
+
         // code for hiding and showing navigation bar on scroll
         st = $(this).scrollTop();
         
@@ -167,23 +168,20 @@ $(window).scroll(function(){
             $(".hamburger").hide();
             lastScrollTop = st;
 
-            if (st == $(elem).offset().top-10.5625){
+            $.fn.scrollStopped = function(callback) {
+                var that = this, $this = $(that);
+                $this.scroll(function(ev) {
+                  clearTimeout($this.data('scrollTimeout'));
+                  $this.data('scrollTimeout', setTimeout(callback.bind(that), 0, ev));
+                });
+            };
+                
+            $(window).scrollStopped(function(ev){
+                console.log(ev);
+                // alert('scroll stopped');
                 clicked = false;
-            }
+            });
 
-            // $.fn.scrollStopped = function(callback) {
-            //     var that = this, $this = $(that);
-            //     $this.scroll(function(ev) {
-            //       clearTimeout($this.data('scrollTimeout'));
-            //       $this.data('scrollTimeout', setTimeout(callback.bind(that), 250, ev));
-            //     });
-            //   };
-              
-            // $(window).scrollStopped(function(ev){
-            //     console.log(ev);
-            //     // alert('scroll stopped');
-            //     clicked = false;
-            // });
 
         }
 
@@ -193,6 +191,7 @@ $(window).scroll(function(){
             lastScrollTop = st;
 
         }
+
 
         // st = $(this).scrollTop();
         // if(st > lastScrollTop){
