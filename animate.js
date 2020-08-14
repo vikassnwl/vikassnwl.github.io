@@ -164,12 +164,27 @@ $(window).scroll(function(){
         }
 
         else if (clicked == true){
+            $(".hamburger").hide();
+            lastScrollTop = st;
 
-            if (st < $(elem).offset().top){
+            if (st == $(elem).offset().top-10.5625){
                 clicked = false;
-                $(".hamburger").hide();
-                lastScrollTop = st;
             }
+
+            // $.fn.scrollStopped = function(callback) {
+            //     var that = this, $this = $(that);
+            //     $this.scroll(function(ev) {
+            //       clearTimeout($this.data('scrollTimeout'));
+            //       $this.data('scrollTimeout', setTimeout(callback.bind(that), 250, ev));
+            //     });
+            //   };
+              
+            // $(window).scrollStopped(function(ev){
+            //     console.log(ev);
+            //     // alert('scroll stopped');
+            //     clicked = false;
+            // });
+
         }
 
         else if (st < lastScrollTop-10){
