@@ -2,13 +2,20 @@ var elem, clicked = false;
 
 $(document).ready(function(){
 
+    if ($(window).width() <= 500){
+        x = 60;
+    }
+    else{
+        x = 10;
+    }
+
     $("#clk_exp").click(function(){
         clicked = true;
         elem = '#exp'
         var target = $('#exp');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top-10
+                scrollTop: target.offset().top-x
             }, 1000);
             return false;
         }
@@ -20,7 +27,7 @@ $(document).ready(function(){
         var target = $('#about');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top-10
+                scrollTop: target.offset().top-x
             }, 1000);
             return false;
         }
@@ -32,7 +39,7 @@ $(document).ready(function(){
         var target = $('#do');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top-10
+                scrollTop: target.offset().top-x
             }, 1000);
             return false;
         }
@@ -51,7 +58,7 @@ $(document).ready(function(){
         var target = $('#skills');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top-10
+                scrollTop: target.offset().top-x
             }, 1000);
             return false;
         }
@@ -63,7 +70,7 @@ $(document).ready(function(){
         var target = $('#contact');
         if (target.length) {
             $('html,body').animate({
-                scrollTop: target.offset().top-10
+                scrollTop: target.offset().top-x
             }, 1000);
             return false;
         }
@@ -91,6 +98,7 @@ $(document).ready(function(){
 
 $(window).resize(function(){
     if($(window).width() > 500){
+
         $(".menu_container").css({"position":"static"});
         $(".menu_container").show();
 
@@ -153,53 +161,50 @@ $(window).scroll(function(){
         }
     }
 
-    else{
+    // else{
 
-        // code for hiding and showing navigation bar on scroll
-        st = $(this).scrollTop();
+    //     // code for hiding and showing navigation bar on scroll
+    //     st = $(this).scrollTop();
         
-        if(st > lastScrollTop+10){
+    //     if(st > lastScrollTop+10){
 
-            $(".hamburger").hide();
-            lastScrollTop = st;
-        }
+    //         $(".hamburger").hide();
+    //         lastScrollTop = st;
+    //     }
 
-        else if (clicked == true){
-            $(".hamburger").hide();
-            lastScrollTop = st;
+    //     else if (clicked == true){
+    //         $(".hamburger").hide();
+    //         lastScrollTop = st;
 
-            $.fn.scrollStopped = function(callback) {
-                var that = this, $this = $(that);
-                $this.scroll(function(ev) {
-                  clearTimeout($this.data('scrollTimeout'));
-                  $this.data('scrollTimeout', setTimeout(callback.bind(that), 0, ev));
-                });
-            };
+    //         $.fn.scrollStopped = function(callback) {
+    //             var that = this, $this = $(that);
+    //             $this.scroll(function(ev) {
+    //               clearTimeout($this.data('scrollTimeout'));
+    //               $this.data('scrollTimeout', setTimeout(callback.bind(that), 250, ev));
+    //             });
+    //         };
                 
-            $(window).scrollStopped(function(ev){
-                console.log(ev);
-                // alert('scroll stopped');
-                clicked = false;
-            });
+    //         $(this).scrollStopped(function(ev){
+    //             clicked = false;
+    //         });
+
+    //     }
+
+    //     else if (st < lastScrollTop-10){
+
+    //         $(".hamburger").show();
+    //         lastScrollTop = st;
+
+    //     }
 
 
-        }
-
-        else if (st < lastScrollTop-10){
-
-            $(".hamburger").show();
-            lastScrollTop = st;
-
-        }
-
-
-        // st = $(this).scrollTop();
-        // if(st > lastScrollTop){
-        //     $(".hamburger").hide();
-        // }
-        // else{
-        //     $(".hamburger").show();
-        // }
-        // lastScrollTop = st;
-    }
+    //     // st = $(this).scrollTop();
+    //     // if(st > lastScrollTop){
+    //     //     $(".hamburger").hide();
+    //     // }
+    //     // else{
+    //     //     $(".hamburger").show();
+    //     // }
+    //     // lastScrollTop = st;
+    // }
 });
