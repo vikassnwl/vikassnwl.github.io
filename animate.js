@@ -118,7 +118,7 @@ $(window).resize(function(){
     else{
 
         // $('.menu_container').css
-        $(".menu_container").css({"display":"block","position":"fixed",'top':'auto',"bottom":"0","z-index":"1"});
+        $(".menu_container").css({"display":"none","position":"fixed",'top':'auto',"bottom":"0","z-index":"1"});
         // $('.menu_container').removeProp('top');
 
         
