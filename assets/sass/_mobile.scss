@@ -1,0 +1,15 @@
+@media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    .menu_container, .main_container, .right_container {
+        width: 100%;
+    }
+
+    .menu_container{
+        display: none;
+    }
+
+    .hamburger{
+        display: block;
+    }
+
+}
