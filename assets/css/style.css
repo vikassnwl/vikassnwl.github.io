@@ -71,15 +71,36 @@ p {
 .menu {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  padding: 10px 20px;
 }
 
 .menuitem {
   cursor: pointer;
-  padding: 8px;
-  margin-top: 7px;
-  border-bottom: 1px solid #f1f1f1;
+  padding: 15px 28px 8px 28px;
   word-wrap: break-word;
+  position: relative;
+}
+
+.menuitem::after {
+  content: "";
+  height: 1px;
+  width: calc(100% - 40px);
+  background: #f1f1f1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+.menuitem:first-child {
+  padding-top: 25px;
+}
+
+.menuitem:last-child {
+  padding-bottom: 18px;
+}
+
+.menuitem:hover {
+  background: #f1f1f1;
 }
 
 .main {
@@ -94,6 +115,17 @@ p {
   padding: 10px;
   float: left;
   width: 60%;
+}
+
+#skills p {
+  display: flex;
+  align-items: center;
+}
+
+#skills img {
+  margin-right: 2rem;
+  width: 20px;
+  height: 20px;
 }
 
 .right_container {
