@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- viewport -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
-        <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"> -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- shortcut icon -->
         <link rel="shortcut icon" href="assets/images/vikas_rounded.png" type="image/x-icon" />
+        <!-- css file -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- title -->
         <title>Vikas Sanwal</title>
-        
-
-        <script src="assets/js/jquery-3.5.1.min.js"></script>
-        <script src="assets/js/animate.js"></script>
-
     </head>
+
     <body>
-
-
-
-        <div class="header">
+        <!-- header of page -->
+        <div class="header" id="header">
             <h1>Vikas Sanwal</h1>
             <h3><span>> </span><span>Studying Bachelor of Computer Applications</span><span> _</span></h3>
             <div class="img_bg">
                 <img class=profile_pic src="assets/images/vikas.jpg">
             </div>
         </div>
-
+        <!-- container -->
         <div class=container>
+            <!-- menu items -->
             <div class=menu_container>
                 <div class=menu>
-                    <div id=clk_home class=menuitem>Home</div>
-                    <div id=clk_do class=menuitem>What I Do</div>
-                    <div id=clk_about class=menuitem>About Me</div>
-                    <div id=clk_exp class=menuitem>My Education And Experience</div>
-                    <div id=clk_skills class=menuitem>Technical Skills</div>
-                    <div id=clk_contact class=menuitem>Contact</div>
-                    <div id=clk_resume class=menuitem>Resume<img src="assets/images/resume_icon.png"></div>
+                    <div data-id="header" class=menuitem>Home</div>
+                    <div data-id="do" class=menuitem>What I Do</div>
+                    <div data-id="about" class=menuitem>About Me</div>
+                    <div data-id="exp" class=menuitem>My Education And Experience</div>
+                    <div data-id="skills" class=menuitem>Technical Skills</div>
+                    <div data-id="contact" class=menuitem>Contact</div>
+                    <!-- <a href="https://google.com" target="_blank"> -->
+                        <div data-id="resume" class=menuitem>
+                            Resume<img src="assets/images/resume_icon.png">
+                        </div>
+                    <!-- </a> -->
                 </div>
             </div>
-
-
+            <!-- main content -->
             <div class=main_container>
+                <!-- What I Do -->
                 <div id=do class=main>
                     <h2>This is what I love to do</h2>
-
                     <ul>
                         <li>
                             <h3>Web Development</h3>
@@ -53,20 +52,17 @@
                             <h3>Python Scripting</h3>
                             <p>Python scripts are very useful in automating tasks. It can save a lot of time by automating tasks instead of manually doing them by ourself.</p>
                         </li>
-
                     </ul>
                 </div>
-
+                <!-- About Me -->
                 <div class=main id=about>
                     <h2>About</h2>
-
                     <p>I am a Computer Science student. I create Python scripts and webpages for fun. I enjoy Coding a lot. I am quick to grasp new ideas and concepts, and to develop innovative and creative solutions to problems. I am able to quickly identify problems and successfully implement solutions. I am highly motivated and never give up. I have good hands on some programming languages and tools which are mentioned below in my skills .</p>
                     <p>I love to learn new things and help people.</p>
                 </div>
-
+                <!-- Education And Experience -->
                 <div id=exp class=main>
                     <h2>My education and experience</h2>
-
                     <ul>
                         <li>
                             <h3>Education</h3>
@@ -80,17 +76,15 @@
                         </li>
                     </ul>
                 </div>
-
+                <!-- Technical Skills -->
                 <div id=skills class=main>
                     <h2>Technical skills</h2>
-
                     <ul>
                         <li>
                             <h3>Programming Languages</h3>
                             <p><img src="assets/images/python.png"> <a target="_blank" href="https://en.wikipedia.org/wiki/Python_%28programming_language%29">Python</a></p>
                             <p><img src="assets/images/javascript-original.svg"> <a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a></p>
                         </li>
-
                         <li>
                             <h3>Other Languages</h3>
                             <p><img src="assets/images/html5-original.svg"> <a target="_blank" href="https://en.wikipedia.org/wiki/HTML">HTML5</a></p>
@@ -98,7 +92,6 @@
                             <p><img src="assets/images/sass-original.svg"> <a target="_blank" href="https://en.wikipedia.org/wiki/Sass_(stylesheet_language)#:~:text=From%20Wikipedia%2C%20the%20free%20encyclopedia%20For%20the%20software,Sheets%20%28CSS%29.%20SassScript%20is%20the%20scripting%20language%20itself.">Sass</a></p>
                             <p><img src="assets/images/bootstrap-plain.svg"> <a target="_blank" href="https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)">Bootstrap</a></p>
                         </li>
-
                         <li>
                             <h3>Web Frameworks and Libraries</h3>
                             <p><img src="assets/images/dj.png"> <a target="_blank" href="https://en.wikipedia.org/wiki/Django_(web_framework)">Django</a></p>
@@ -107,10 +100,9 @@
                         </li>
                     </ul>
                 </div>
-
+                <!-- Contact -->
                 <div id=contact class=main>
                     <h2>Let's keep in touch</h2>
-
                     <ul>
                         <li>
                             <h3>Address</h3>
@@ -120,7 +112,6 @@
                             <h3>Phone</h3>
                             <p>8476062458</p>
                         </li>
-
                         <li>
                             <h3>Email</h3>
                             <p>vikassnwl@gmail.com</p>
@@ -128,7 +119,7 @@
                     </ul>
                 </div>
             </div>
-
+            <!-- Right container -->
             <div class="right_container">
                 <div class="right">
                     <h2>Resources</h2>
@@ -152,7 +143,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- footer -->
         <div class=footer>
                 Follow Me On <img class=footer_img src="assets/images/github.svg" />
                 &#9679;
@@ -160,10 +151,12 @@
                 &#9679;
                 Designed by Vikas Sanwal
         </div>
-
+        <!-- menu icon -->
         <div class=hamburger>
             <img src="assets/images/menu.svg" style="width: 20px;">
         </div>
-
+                <!-- js files -->
+                <script src="assets/js/jquery-3.5.1.min.js"></script>
+                <script src="assets/js/animate.js"></script>
     </body>
 </html>

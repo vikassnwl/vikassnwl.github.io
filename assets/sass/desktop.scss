@@ -1,6 +1,6 @@
 // variables
 $primary-color: #f1f1f1;
-$primary-font-color: inherit;
+$font-family: Roboto;
 
 @font-face {
     font-family: Roboto;
@@ -9,17 +9,19 @@ $primary-font-color: inherit;
 
 *{
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body{
-    font-family: Roboto;
+    font-family: $font-family;
     margin: 0;
     padding: 0;
 }
 
+// ============================   HEADER   ========================================
+
 .header{
     background-color: $primary-color;
-    color: $primary-font-color;
     padding: 15px;
     position: relative;
     padding-bottom: 100px;
@@ -62,6 +64,9 @@ body{
     border-radius: 50%;
 }
 
+
+// ========================================   CONTAINER   ========================================
+
 .container{
     overflow: auto;
     margin-top: 100px;
@@ -73,11 +78,8 @@ p{
 
 .hamburger{
     position: fixed;
-    /* z-index: 1; */
     padding: 15px;
-    /* margin-bottom: 0; */
     background-color: white;
-    /* box-shadow: 4px 0 2px -2px gray; */
     box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
     width: 100%;
     display: none;
@@ -88,6 +90,8 @@ p{
     display: block;
 }
 
+// =======================   MENU CONTAINER   =====================================
+
 .menu_container{
     padding: 10px;
     float: left;
@@ -97,7 +101,7 @@ p{
 .menu{
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     border-radius: 10px;
-    // padding: 10px 20px;
+    background: white;
     a{
         text-decoration: none;
     }
@@ -106,11 +110,24 @@ p{
 .menuitem{
     cursor: pointer;
     padding: 15px 28px 8px 28px;
-    // margin-top: 7px;
-    // border-bottom: 1px solid #f1f1f1;
     word-wrap: break-word;
-    // border-radius: 1rem;
     position: relative;
+    &:first-child{
+        padding-top: 25px;
+    }
+    &:last-child{
+        padding-bottom: 18px;
+    }
+    &:hover{
+        background: $primary-color;
+    }
+    img{
+        float: right;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 28px;
+    }
 }
 
 .menuitem::after{
@@ -124,20 +141,7 @@ p{
     bottom: 0;
 }
 
-.menuitem:first-child{
-    padding-top: 25px;
-}
-
-.menuitem:last-child{
-    padding-bottom: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.menuitem:hover{
-    background: $primary-color;
-}
+// ========================================   MAIN CONTENT   ============================================
 
 .main{
     padding: 10px 20px;
@@ -164,6 +168,8 @@ p{
     height: 20px;
 }
 
+// ===================================   RIGHT CONTAINER   =======================================
+
 .right_container{
     padding: 10px;
     float: left;
@@ -177,9 +183,10 @@ p{
     border-radius: 10px;
 }
 
+// ========================================   FOOTER   ======================================
+
 .footer{
     background-color: $primary-color;
-    color: $primary-font-color;
     font-size: 12px;
     text-align: center;
     margin-top: 7px;

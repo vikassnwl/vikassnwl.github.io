@@ -1,237 +1,68 @@
-var elem, clicked = false;
+// defining variables
+let main_container = document.querySelector('.main_container').offsetTop;
+let menu_container_style = document.querySelector('.menu_container').style;
+let right_container_style = document.querySelector('.right_container').style;
+let main_container_style = document.querySelector('.main_container').style;
+let hamburger_style = document.querySelector('.hamburger').style;
+let init_scroll_val = 0; // this value will change on scroll, so can't be const
 
-$(document).ready(function(){
-
-    x = 10;
-
-    $("#clk_exp").click(function(){
-        clicked = true;
-        elem = '#exp'
-        var target = $('#exp');
-        if (target.length) {
-            $('html,body').animate({
-                scrollTop: target.offset().top-x
-            }, 1000);
-            return false;
+// handling scroll events
+window.onscroll = function(){
+    // making menu-container and right-container fixed on scroll - on desktop
+    if(window.innerWidth > 500){
+        if (document.documentElement.scrollTop > main_container) {
+            menu_container_style.position = 'fixed';
+            menu_container_style.top = 0;
+            right_container_style.position = 'fixed';
+            right_container_style.top = 0;
+            right_container_style.right = 0;
+            main_container_style.marginLeft = '20%';
         }
-    });
-
-    $("#clk_about").click(function(){
-        clicked = true;
-        elem = '#about'
-        var target = $('#about');
-        if (target.length) {
-            $('html,body').animate({
-                scrollTop: target.offset().top-x
-            }, 1000);
-            return false;
+        else{
+            menu_container_style.position = 'static';
+            right_container_style.position = 'static';
+            main_container_style.marginLeft = 0;
         }
-    });
-
-    $("#clk_do").click(function(){
-        clicked = true;
-        elem = '#do'
-        var target = $('#do');
-        if (target.length) {
-            $('html,body').animate({
-                scrollTop: target.offset().top-x
-            }, 1000);
-            return false;
-        }
-    });
-
-    $("#clk_home").click(function(){
-        $('html,body').animate({
-            scrollTop: 0
-        }, 1000);
-        return false;
-    });
-
-    $("#clk_skills").click(function(){
-        clicked = true;
-        elem = '#skills'
-        var target = $('#skills');
-        if (target.length) {
-            $('html,body').animate({
-                scrollTop: target.offset().top-x
-            }, 1000);
-            return false;
-        }
-    });
-
-    $("#clk_contact").click(function(){
-        clicked = true;
-        elem = '#contact'
-        var target = $('#contact');
-        if (target.length) {
-            $('html,body').animate({
-                scrollTop: target.offset().top-x
-            }, 1000);
-            return false;
-        }
-    });
-
-    $("#clk_resume").click(function(){
-        // window.location = 'https://google.com';
-        window.open('https://drive.google.com/file/d/1uSyuaERWPiyYS04sYee5k5TXNA_B4VM6/view?usp=sharing', '_blank');
-        clicked = true;
-        elem = '#contact'
-        var target = $('#contact');
-        if (target.length) {
-            $('html,body').animate({
-                scrollTop: target.offset().top-x
-            }, 1000);
-            return false;
-        }
-    });
-
-    $(".hamburger img").click(function(){
-        $(".menu_container").css({"display":"block","position":"fixed","bottom":"0","z-index":"1"});
-        $(".menu").css({"background-color":"white"});
-    });
-
-    if($(window).width() <= 500){
-
-        $("html, .menuitem").click(function(){
-            $(".menu_container").hide();
-        });
-
     }
-
-    $('.hamburger').click(function(event){
-        event.stopPropagation();
-    });
-
-});
-
-
-$(window).resize(function(){
-    if($(window).width() > 500){
-
-        $(".menu_container").css({"position":"static"});
-        $(".menu_container").show();
-
-        if ($(this).scrollTop() > $(".main_container").offset().top) {
-
-            $(".menu_container").css({"position":"fixed","top":"0"});
-            $(".right_container").css({"position":"fixed","top":"0","right":"0"});
-            $('.main_container').css({"margin-left":"20%"})
-        } 
-        else {
-
-            $(".menu_container").css({"position":"static"});
-            $(".right_container").css({"position":"static"});
-            $('.main_container').css({"margin-left":"0"})
-        }
-
-        $("html, .menuitem").click(function(){
-            $(".menu_container").show();
-        });
-
-    }
+    // hiding/showing hamburger icon on scroll up/down - on mobile
     else{
-
-        // $('.menu_container').css
-        $(".menu_container").css({"display":"none","position":"fixed",'top':'auto',"bottom":"0","z-index":"1"});
-        // $('.menu_container').removeProp('top');
-
-        
-        $(".hamburger img").click(function(){
-            // $('.menu_container').removeProp('top');
-            $(".menu_container").css({"display":"block","position":"fixed",'top':'auto',"bottom":"0","z-index":"1"});
-            $(".menu").css({"background-color":"white"});
-        });
-    
-        $("html, .menuitem").click(function(){
-            $(".menu_container").hide();
-        });
-    
-        $('.hamburger').click(function(event){
-            event.stopPropagation();
-        });
-
-        $(".right_container").css({"position":"static"});
-        $('.main_container').css({"margin-left":"0"});
+        if(document.documentElement.scrollTop > init_scroll_val+10){
+            hamburger_style.display = 'none';
+            init_scroll_val = document.documentElement.scrollTop;
+        }
+        else if(document.documentElement.scrollTop < init_scroll_val-10){
+            hamburger_style.display = 'block';
+            init_scroll_val = document.documentElement.scrollTop;
+        }
+    }
+}
 
 
+// handling click events on menu items
+document.querySelectorAll('.menuitem').forEach(function(item){
+    item.onclick = function(){
+        // redirecting to resume on click resume link in menu items
+        if(this.dataset.id === 'resume'){
+            const resume_link = 'https://drive.google.com/file/d/1uSyuaERWPiyYS04sYee5k5TXNA_B4VM6/view?usp=sharing';
+            window.open(resume_link, '_blank');
+        }
+        // scrolling to content on click menu items
+        else{
+            const element = document.querySelector(`#${this.dataset.id}`).offsetTop;
+            window.scrollTo(0, element-10);
+        }
 
+        // hiding menu items on click - on mobile
+        if(window.innerWidth <= 500){
+            menu_container_style.display = 'none';
+        }
     }
 });
 
-var lastScrollTop = 0;
-
-$(window).scroll(function(){
-    if ($(window).width() > 800) {
-        if ($(this).scrollTop() > $(".main_container").offset().top) {
-
-            $(".menu_container").css({"position":"fixed","top":"0"});
-            $('.right_container').css({"position":"fixed", "top":"0", "right":"0"});
-            $('.main_container').css({"margin-left":"20%"});
-        } 
-        else {
-
-            $(".menu_container").css({"position":"static"});
-            $(".right_container").css({"position":"static"});
-            $('.main_container').css({"margin-left":"0"});
-        }
-    }
-
-    else{
-
-    //     // code for hiding and showing navigation bar on scroll
-    //     st = $(this).scrollTop();
-        
-    //     if(st > lastScrollTop+10){
-
-    //         $(".hamburger").hide();
-    //         lastScrollTop = st;
-    //     }
-
-    //     else if (clicked == true){
-    //         $(".hamburger").hide();
-    //         lastScrollTop = st;
-
-    //         $.fn.scrollStopped = function(callback) {
-    //             var that = this, $this = $(that);
-    //             $this.scroll(function(ev) {
-    //               clearTimeout($this.data('scrollTimeout'));
-    //               $this.data('scrollTimeout', setTimeout(callback.bind(that), 250, ev));
-    //             });
-    //         };
-                
-    //         $(this).scrollStopped(function(ev){
-    //             clicked = false;
-    //         });
-
-    //     }
-
-    //     else if (st < lastScrollTop-10){
-
-    //         $(".hamburger").show();
-    //         lastScrollTop = st;
-
-    //     }
-        st = $(this).scrollTop();
-
-        if(st > lastScrollTop+10){
-
-            $(".hamburger").hide();
-            lastScrollTop = st;
-        }
-
-        else if (st < lastScrollTop-10){
-
-            $(".hamburger").show();
-            lastScrollTop = st;
-        }
-
-        // st = $(this).scrollTop();
-        // if(st > lastScrollTop){
-        //     $(".hamburger").hide();
-        // }
-        // else{
-        //     $(".hamburger").show();
-        // }
-        // lastScrollTop = st;
-    }
-});
+// showing menu items on click hamburger icon on mobile device
+document.querySelector('.hamburger img').onclick = function(){
+    menu_container_style.display = 'block';
+    menu_container_style.position = 'fixed';
+    menu_container_style.bottom = 0;
+    menu_container_style.zIndex = 1;
+}
