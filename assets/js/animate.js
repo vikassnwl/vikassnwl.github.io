@@ -9,7 +9,7 @@ let init_scroll_val = 0; // this value will change on scroll, so can't be const
 // handling scroll events
 window.onscroll = function(){
     // making menu-container and right-container fixed on scroll - on desktop
-    if(window.innerWidth > 500){
+    if(window.innerWidth > 800){
         if (document.documentElement.scrollTop > main_container) {
             menu_container_style.position = 'fixed';
             menu_container_style.top = 0;
@@ -53,7 +53,7 @@ document.querySelectorAll('.menuitem').forEach(function(item){
         }
 
         // hiding menu items on click - on mobile
-        if(window.innerWidth <= 500){
+        if(window.innerWidth <= 800){
             menu_container_style.display = 'none';
         }
     }
