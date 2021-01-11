@@ -71,6 +71,20 @@ $(document).ready(function(){
         }
     });
 
+    $("#clk_resume").click(function(){
+        // window.location = 'https://google.com';
+        window.open('https://drive.google.com/file/d/1uSyuaERWPiyYS04sYee5k5TXNA_B4VM6/view?usp=sharing', '_blank');
+        clicked = true;
+        elem = '#contact'
+        var target = $('#contact');
+        if (target.length) {
+            $('html,body').animate({
+                scrollTop: target.offset().top-x
+            }, 1000);
+            return false;
+        }
+    });
+
     $(".hamburger img").click(function(){
         $(".menu_container").css({"display":"block","position":"fixed","bottom":"0","z-index":"1"});
         $(".menu").css({"background-color":"white"});
