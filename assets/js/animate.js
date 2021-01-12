@@ -51,13 +51,16 @@ document.querySelectorAll('.menuitem').forEach(function(item){
             const element = document.querySelector(`#${this.dataset.id}`).offsetTop;
             window.scrollTo(0, element-10);
         }
-
-        // hiding menu items on click - on mobile
-        if(window.innerWidth <= 800){
-            menu_container_style.display = 'none';
-        }
     }
 });
+
+// hiding menu on click anywhere on page
+document.querySelector('html').onclick = function(){
+    menu_container_style.display = 'none';
+}
+document.querySelector('.hamburger').onclick = function(e){
+    e.stopPropagation();
+}
 
 // showing menu items on click hamburger icon on mobile device
 document.querySelector('.hamburger img').onclick = function(){
@@ -65,4 +68,5 @@ document.querySelector('.hamburger img').onclick = function(){
     menu_container_style.position = 'fixed';
     menu_container_style.bottom = 0;
     menu_container_style.zIndex = 1;
+    return false;
 }
