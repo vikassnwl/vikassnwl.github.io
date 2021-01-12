@@ -59,7 +59,7 @@ document.querySelectorAll('.menuitem').forEach(function(item){
 });
 
 // hiding menu on click anywhere on page
-if(document.documentElement.innerWidth <= 800){
+if(window.innerWidth <= 800){
     document.querySelector('html').onclick = function(){
         menu_container_style.display = 'none';
     }
