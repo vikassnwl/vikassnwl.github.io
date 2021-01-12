@@ -48,18 +48,24 @@ document.querySelectorAll('.menuitem').forEach(function(item){
         }
         // scrolling to content on click menu items
         else{
-            const element = document.querySelector(`#${this.dataset.id}`).offsetTop;
-            window.scrollTo(0, element-10);
+            // const element = document.querySelector(`#${this.dataset.id}`).offsetTop;
+            // window.scrollTo(0, element-10);
+            const target = $(`#${this.dataset.id}`);
+            $('html').animate({
+                scrollTop: target.offset().top-10
+            }, 1000);
         }
     }
 });
 
 // hiding menu on click anywhere on page
-document.querySelector('html').onclick = function(){
-    menu_container_style.display = 'none';
-}
-document.querySelector('.hamburger').onclick = function(e){
-    e.stopPropagation();
+if(document.documentElement.innerWidth <= 800){
+    document.querySelector('html').onclick = function(){
+        menu_container_style.display = 'none';
+    }
+    document.querySelector('.hamburger').onclick = function(e){
+        e.stopPropagation();
+    }
 }
 
 // showing menu items on click hamburger icon on mobile device
