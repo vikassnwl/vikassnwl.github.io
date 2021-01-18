@@ -43,7 +43,7 @@ document.querySelectorAll('.menuitem').forEach(function(item){
     item.onclick = function(){
         // redirecting to resume on click resume link in menu items
         if(this.dataset.id === 'resume'){
-            const resume_link = 'https://drive.google.com/file/d/1uSyuaERWPiyYS04sYee5k5TXNA_B4VM6/view?usp=sharing';
+            const resume_link = 'https://drive.google.com/file/d/1i9-vymrSCdUcxuo7fI0FkqQ2nJhbxjIT/view?usp=sharing';
             window.open(resume_link, '_blank');
         }
         // scrolling to content on click menu items
