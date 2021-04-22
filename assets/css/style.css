@@ -12,8 +12,20 @@ body {
   padding: 0;
 }
 
+.body-dark {
+  color: white;
+  background: #121212;
+}
+
 .header {
   background-color: #f1f1f1;
+  padding: 15px;
+  position: relative;
+  padding-bottom: 100px;
+}
+
+.header-dark {
+  background-color: #1f1f1f;
   padding: 15px;
   position: relative;
   padding-bottom: 100px;
@@ -45,10 +57,46 @@ body {
   border-radius: 50%;
 }
 
+.img_bg-dark {
+  background: #121212;
+}
+
 .profile_pic {
   width: 100%;
   padding: 10px;
   border-radius: 50%;
+}
+
+.bar {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 12.5px;
+  background: gray;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 20px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px grey;
+}
+
+.circle-dark {
+  box-shadow: none;
+  left: 100%;
+  content: url("../images/half-moon.svg");
 }
 
 .container {
@@ -70,6 +118,10 @@ p {
   bottom: 0;
 }
 
+.hamburger-dark {
+  background: #1f1f1f;
+}
+
 .hamburger img {
   display: block;
 }
@@ -85,6 +137,11 @@ p {
   border-radius: 10px;
   background: white;
 }
+
+.menu-dark {
+  background: #1f1f1f;
+}
+
 .menu a {
   text-decoration: none;
 }
@@ -95,15 +152,25 @@ p {
   word-wrap: break-word;
   position: relative;
 }
+
 .menuitem:first-child {
   padding-top: 25px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .menuitem:last-child {
   padding-bottom: 18px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .menuitem:hover {
   background: #f1f1f1;
 }
+
+.menuitem-dark:hover {
+  background: black;
+}
+
 .menuitem img {
   float: right;
   position: absolute;
@@ -112,7 +179,7 @@ p {
   right: 28px;
 }
 
-.menuitem::after {
+.menuitem:not(:last-child)::after {
   content: "";
   height: 1px;
   width: calc(100% - 40px);
@@ -123,6 +190,26 @@ p {
   bottom: 0;
 }
 
+.menuitem-dark:not(:last-child)::after {
+  background: #1f1f1f;
+}
+
+.menuitem-dark-after:not(:last-child)::after {
+  background: black;
+}
+
+.menuitem-light-after:not(:last-child)::after {
+  background: #f1f1f1;
+}
+
+.menuitem-dark-before:not(:last-child)::after {
+  background: #1d1d1d;
+}
+
+.menuitem-light-before:not(:last-child)::after {
+  background: white;
+}
+
 .main {
   padding: 10px 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -131,10 +218,18 @@ p {
   margin-bottom: 25px;
 }
 
+.main-dark {
+  background: #1f1f1f;
+}
+
 .main_container {
   padding: 10px;
   float: left;
   width: 60%;
+}
+
+.main_container-dark a {
+  color: #58dbc6;
 }
 
 #skills p {
@@ -161,6 +256,15 @@ p {
   border-radius: 10px;
 }
 
+.right-dark {
+  background: #58dbc6;
+  color: black;
+}
+
+.right-dark a {
+  color: #282c34;
+}
+
 .footer {
   background-color: #f1f1f1;
   font-size: 12px;
@@ -169,8 +273,16 @@ p {
   padding: 10px;
 }
 
+.footer-dark {
+  background: #1f1f1f;
+}
+
 .footer_img {
   width: 20px;
+}
+
+.footer_img-dark {
+  content: url("../images/github.png");
 }
 
 .fixed {
@@ -186,7 +298,9 @@ p {
 
 @media only screen and (max-width: 800px) {
   /* For mobile phones: */
-  .menu_container, .main_container, .right_container {
+  .menu_container,
+  .main_container,
+  .right_container {
     width: 100%;
   }
 
@@ -196,6 +310,10 @@ p {
 
   .hamburger {
     display: block;
+  }
+
+  .menu-dark {
+    background: black;
   }
 }
 
