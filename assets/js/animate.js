@@ -41,7 +41,7 @@ document.querySelectorAll(".menuitem").forEach(function (item) {
     // redirecting to resume on click resume link in menu items
     if (this.dataset.id === "resume") {
       const resume_link =
-        "https://drive.google.com/file/d/1i9-vymrSCdUcxuo7fI0FkqQ2nJhbxjIT/view?usp=sharing";
+        "https://drive.google.com/file/d/1lTx2XX1XqoQKo65VO0VwXgrq4a7_F5Sc/view?usp=sharing";
       window.open(resume_link, "_blank");
     }
     // scrolling to content on click menu items
